@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.content {
+  font-family: 'Roboto', sans-serif;
+
+  display: flex;
+  height: 100vh;
+
+
+  .middle {
+    display: flex;
+    img {
+      width: 200px;
+      margin: auto;
+      width: 33%;
+    }
+    .data {
+      width: 33%;
+      margin: auto;
+      .row{
+        cursor: pointer;
+        p {
+          margin: 0;
+          font-size: 8px;
+          color: #233b66;
+          font-weight: bold;
+        }
+        h3 {
+          text-transform: uppercase;
+          margin-top: 0;
+          font-size: 10px;
+        }
+      }
+    }
+    #sol {
+      position: relative;
+      right: -16px;
+      max-width:104px;
+      overflow:hidden;
+      width: 33%;
+      img {
+        width: 208px;
+      }
+    }
+  }
+
+
+
+  .card {
+    background-image: linear-gradient(17deg, #233a661f 14.29%, #ffffff 14.29%, #ffffff 50%, #233a6618 50%, #233a6621 64.29%, #ffffff 64.29%, #ffffff 100%);
+    background-size: 23.94px 7.32px;
+    padding: 1em;
+    width: 570px;
+    height: 360px;
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .top {
+    color: #233b66;
+    display: flex;
+    img {
+      padding: .5em;
+      margin: auto;
+      width: 60px;
+    }
+    div {
+      margin : auto;
+    }
+    .middle {
+      padding: .5em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      h4 {
+        font-size: 13px;
+        margin: 0;
+      }
+      h3 {
+        font-size: 17px;
+        margin: 0;
+      }
+    }
+    .right {
+      text-align: center;
+      h3 {
+        font-size: 15px;
+        margin: 0;
+      }
+      h4 {
+        font-size: 13px;
+        margin: 0;
+      }
+    }
+  }
+
+  #faces {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+  }
+}
