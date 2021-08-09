@@ -10,7 +10,6 @@ export class AppComponent {
 
   constructor(private apiService: ApiService){
     this.getName();
-    this.getName();
   }
 
 
@@ -44,13 +43,21 @@ export class AppComponent {
 
 
   getName(){
-    this.apiService.getName().subscribe(
+    this.apiService.getName('firstname').subscribe(
       (data)=>{
-        this.name += data.data.name.firstname.name+" ";
-        this.lastname += data.data.name.lastname.name+" ";
+        this.name += `${data[0]} ${data[1]}`;
       },
       (err)=>{
-        console.error("error getting names");
+        console.error("error getting first names");
+        console.error(err);
+      }
+    );
+    this.apiService.getName('surname').subscribe(
+      (data)=>{
+        this.lastname += `${data[0]} ${data[1]}`;
+      },
+      (err)=>{
+        console.error("error getting last names");
         console.error(err);
       }
     );
@@ -111,8 +118,8 @@ export class AppComponent {
 
   city = this.cities[Math.floor(Math.random() * this.cities.length)];
 
-  name = '';
-  lastname = '';
+  name = 'John';
+  lastname = 'Smith';
   birthdate = this.resolveDate(null);
   expeditionDate = this.resolveDate(new Date(parseInt(this.birthdate.split('/')[2]), parseInt(this.birthdate.split('/')[1]), parseInt(this.birthdate.split('/')[2])));
   dueDate = `${this.expeditionDate.split('/')[0]}/${this.expeditionDate.split('/')[1]}/${parseInt(this.expeditionDate.split('/')[2])+10}`;

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -8,7 +8,11 @@ import { Observable } from "rxjs";
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  public getName(): Observable<any> {
-    return this.http.get<any>('https://api.parser.name/?api_key=0b49933def25e9780e052e444bc9cac4&endpoint=generate&country_code=uy');
+  public getName(nameType:string): Observable<any> {
+    return this.http.get<any>(`https://randommer.io/api/Name?nameType=${nameType}&quantity=2&CountryCode=UY`, {
+      headers: new HttpHeaders({
+        'X-API-KEY' : '9dd4dca7ba3746ad96f81c54a94ce817'
+      })
+    });
   }
 }
