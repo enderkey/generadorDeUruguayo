@@ -1,6 +1,6 @@
-# UruguayanGenerator
+# generadorDeUruguayo
 
-UruguayanGenerator is an information generator of a person from Uruguay.
+generadorDeUruguayo is an information generator of a person from Uruguay.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
 
