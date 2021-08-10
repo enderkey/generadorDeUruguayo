@@ -126,6 +126,7 @@
     bottom: 0;
     width: 100%;
     text-align: center;
+    padding-bottom: .5em;
 
     a {
       margin: .5em;
@@ -147,4 +148,10 @@
 
 .success {
   background-color: #28a745;
+}
+
+.developer {
+  position: absolute;
+  bottom: .5em;
+  left: .5em;
 }

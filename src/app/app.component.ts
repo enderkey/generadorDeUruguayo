@@ -119,6 +119,7 @@ export class AppComponent {
     "Tacuarembó",
     "Treinta y Tres"
   ];
+  title = "Uruguayan generator"
 
   person = {
     name : 'John',
