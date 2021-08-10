@@ -9,7 +9,7 @@ import { ApiService } from './services/api';
 export class AppComponent {
 
   constructor(private apiService: ApiService){
-    this.getName();
+    this.getRandom();
   }
 
 
@@ -39,13 +39,20 @@ export class AppComponent {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+
+    this.showToast = true;
+    
+    setTimeout(()=>{
+      this.showToast = false;
+    }, 5000);
+
   }
 
 
   getName(){
     this.apiService.getName('firstname').subscribe(
       (data)=>{
-        this.name += `${data[0]} ${data[1]}`;
+        this.person.name = `${data[0]} ${data[1]}`;
       },
       (err)=>{
         console.error("error getting first names");
@@ -54,7 +61,7 @@ export class AppComponent {
     );
     this.apiService.getName('surname').subscribe(
       (data)=>{
-        this.lastname += `${data[0]} ${data[1]}`;
+        this.person.lastname = `${data[0]} ${data[1]}`;
       },
       (err)=>{
         console.error("error getting last names");
@@ -82,7 +89,6 @@ export class AppComponent {
     });
 
     while (`${total}`.charAt(`${total}`.length-1) != '0') {
-      console.log(total);
       total++;
       checkDigit++;
     }
@@ -90,9 +96,7 @@ export class AppComponent {
     return `${this.numberWithCommas(parseInt(ci))}-${checkDigit}`;
   }
 
-  
-
-  title = 'Uruguayan generator';
+  showToast = false;
 
   cities = [
     "Artigas",
@@ -116,14 +120,26 @@ export class AppComponent {
     "Treinta y Tres"
   ];
 
-  city = this.cities[Math.floor(Math.random() * this.cities.length)];
+  person = {
+    name : 'John',
+    lastname : 'Smith',
+    city : "",
+    birthdate : "",
+    expeditionDate : "",
+    dueDate : "",
+    ci : "",
+    photo : ""
+  };
 
-  name = 'John';
-  lastname = 'Smith';
-  birthdate = this.resolveDate(null);
-  expeditionDate = this.resolveDate(new Date(parseInt(this.birthdate.split('/')[2]), parseInt(this.birthdate.split('/')[1]), parseInt(this.birthdate.split('/')[2])));
-  dueDate = `${this.expeditionDate.split('/')[0]}/${this.expeditionDate.split('/')[1]}/${parseInt(this.expeditionDate.split('/')[2])+10}`;
-  ci = this.resolveCi();
+  getRandom() {
+    this.person.city = this.cities[Math.floor(Math.random() * this.cities.length)];
+    this.person.birthdate = this.resolveDate(null);
+    this.person.expeditionDate = this.resolveDate(new Date(parseInt(this.person.birthdate.split('/')[2]), parseInt(this.person.birthdate.split('/')[1]), parseInt(this.person.birthdate.split('/')[2])));
+    this.person.dueDate = `${this.person.expeditionDate.split('/')[0]}/${this.person.expeditionDate.split('/')[1]}/${parseInt(this.person.expeditionDate.split('/')[2])+10}`;
+    this.person.ci = this.resolveCi();
+    this.person.photo = "https://100k-faces.glitch.me/random-image?"+(new Date()).getTime();
+    this.getName();
+  }
   
 }
 

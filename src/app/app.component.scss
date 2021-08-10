@@ -1,102 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.content {
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
 
+.content {
+
+  width: 100vw;
   display: flex;
   height: 100vh;
+  flex-direction: column;
 
+  .centered {
 
-  .middle {
+    height: 100vh;
     display: flex;
-    img {
-      width: 200px;
-      margin: auto;
-      width: 33%;
-    }
-    .data {
-      width: 33%;
-      margin: auto;
-      .row{
+    flex-direction: column;
+    
+      .button {
+        color: #FFF;
+        background-color: #28a745;
+        padding: 1em;
+        border-radius: 5px;
+        margin: 1em auto auto auto;
         cursor: pointer;
-        p {
-          margin: 0;
-          font-size: 8px;
-          color: #233b66;
-          font-weight: bold;
+      }
+
+      .card {
+        background-image: linear-gradient(17deg, #233a661f 14.29%, #ffffff 14.29%, #ffffff 50%, #233a6618 50%, #233a6621 64.29%, #ffffff 64.29%, #ffffff 100%);
+        background-size: 23.94px 7.32px;
+        padding: 1em;
+        width: 570px;
+        height: 360px;
+        margin: auto auto 1em auto;
+        border-radius: 30px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      .middle {
+        display: flex;
+        img {
+          width: 200px;
+          margin: auto;
+          width: 33%;
         }
-        h3 {
+        .data {
+          width: 33%;
+          margin: auto;
+          .row{
+            cursor: pointer;
+            p {
+              margin: 0;
+              font-size: 8px;
+              color: #233b66;
+              font-weight: bold;
+            }
+            h3 {
+              text-transform: uppercase;
+              margin-top: 0;
+              font-size: 10px;
+            }
+          }
+          .row:hover h3{
+            color: green;
+          }
+        }
+        #sol {
+          position: relative;
+          right: -16px;
+          max-width:104px;
+          overflow:hidden;
+          width: 33%;
+          img {
+            width: 208px;
+          }
+        }
+      }
+
+      .top {
+        color: #233b66;
+        display: flex;
+        img {
+          padding: .5em;
+          margin: auto;
+          width: 60px;
+        }
+        div {
+          margin : auto;
+        }
+        .middle {
+          padding: .5em;
           text-transform: uppercase;
-          margin-top: 0;
-          font-size: 10px;
+          display: flex;
+          flex-direction: column;
+          h4 {
+            font-size: 13px;
+            margin: 0;
+          }
+          h3 {
+            font-size: 17px;
+            margin: 0;
+          }
+        }
+        .right {
+          text-align: center;
+          h3 {
+            font-size: 15px;
+            margin: 0;
+          }
+          h4 {
+            font-size: 13px;
+            margin: 0;
+          }
         }
       }
-    }
-    #sol {
-      position: relative;
-      right: -16px;
-      max-width:104px;
-      overflow:hidden;
-      width: 33%;
-      img {
-        width: 208px;
       }
-    }
+      
+
   }
 
-
-
-  .card {
-    background-image: linear-gradient(17deg, #233a661f 14.29%, #ffffff 14.29%, #ffffff 50%, #233a6618 50%, #233a6621 64.29%, #ffffff 64.29%, #ffffff 100%);
-    background-size: 23.94px 7.32px;
-    padding: 1em;
-    width: 570px;
-    height: 360px;
-    margin: auto;
-    border-radius: 30px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  .top {
-    color: #233b66;
-    display: flex;
-    img {
-      padding: .5em;
-      margin: auto;
-      width: 60px;
-    }
-    div {
-      margin : auto;
-    }
-    .middle {
-      padding: .5em;
-      text-transform: uppercase;
-      display: flex;
-      flex-direction: column;
-      h4 {
-        font-size: 13px;
-        margin: 0;
-      }
-      h3 {
-        font-size: 17px;
-        margin: 0;
-      }
-    }
-    .right {
-      text-align: center;
-      h3 {
-        font-size: 15px;
-        margin: 0;
-      }
-      h4 {
-        font-size: 13px;
-        margin: 0;
-      }
-    }
-  }
-
-  #faces {
+  #credits {
     position: absolute;
     bottom: 0;
-    left: 50%;
+    width: 100%;
+    text-align: center;
+
+    a {
+      margin: .5em;
+    }
   }
+}
+
+.toast {
+  background-color: #FFF;
+  text-align: center;
+  color: #FFF;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+  font-size: 1.3em;
+
+  transition: .5s background-color ease-out;
+}
+
+.success {
+  background-color: #28a745;
 }

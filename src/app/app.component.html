@@ -1,57 +1,71 @@
+
+<div class="toast" [ngClass]="{'success': showToast}">Copied to clipboard!</div>
+
 <div class="content">
-  <div class="card">
-    <div class="top">
-      <img src="../assets/escudo.png" alt="escudo">
-      <div class="middle">
-        <h3>rep&uacute;blica oriental del uruguay</h3>
-        <h4>direcci&oacute;n nacional de identificaci&oacute;n civil</h4>
+  <div class="centered">
+
+    <div class="card">
+      <div class="top">
+        <img src="../assets/escudo.png" alt="escudo">
+        <div class="middle">
+          <h3>rep&uacute;blica oriental del uruguay</h3>
+          <h4>direcci&oacute;n nacional de identificaci&oacute;n civil</h4>
+        </div>
+        <div class="right">
+          <h3>Documento de Identidad</h3>
+          <h4>Carteira de Identidae</h4>
+        </div>
       </div>
-      <div class="right">
-        <h3>Documento de Identidad</h3>
-        <h4>Carteira de Identidae</h4>
+      <div class="middle">
+        <img src="{{person.photo}}" alt="foto">
+        <div class="data">
+          <div class="row" (click)="copyMessage(person.lastname)">
+            <p>Apellido / Sobrenome</p>
+            <h3>{{person.lastname}}</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.name)">
+            <p>Nombre / Nome</p>
+            <h3>{{person.name}}</h3>
+          </div>
+          <div class="row" (click)="copyMessage('URUGUAYA')">
+            <p>Nacionalidad / Nacionalidade</p>
+            <h3>URUGUAYA</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.birthdate)">
+            <p>Fecha de Nacimiento / Data de Nacimiento</p>
+            <h3>{{person.birthdate}}</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.city+'/URY')">
+            <p>Lugar de Nacimineto / Local de Nascimento</p>
+            <h3>{{person.city}}/URY</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.ci)">
+            <p>Nº de Identidadad / Nº de Identidade</p>
+            <h3>{{person.ci}}</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.expeditionDate)">
+            <p>Expedici&oacute;n / Expedição</p>
+            <h3>{{person.expeditionDate}}</h3>
+          </div>
+          <div class="row" (click)="copyMessage(person.dueDate)">
+            <p>Vencimiento / Vencimento</p>
+            <h3>{{person.dueDate}}</h3>
+          </div>
+        </div>
+        <div id="sol">
+          <img src="../assets/sol.png" alt="sol">
+        </div>
       </div>
     </div>
-    <div class="middle">
-      <img src="https://100k-faces.glitch.me/random-image" alt="foto">
-      <div class="data">
-        <div class="row">
-          <p>Apellido / Sobrenome</p>
-          <h3>{{lastname}}</h3>
-        </div>
-        <div class="row">
-          <p>Nombre / Nome</p>
-          <h3>{{name}}</h3>
-        </div>
-        <div class="row">
-          <p>Nacionalidad / Nacionalidade</p>
-          <h3>URUGUAYA</h3>
-        </div>
-        <div class="row">
-          <p>Fecha de Nacimiento / Data de Nacimiento</p>
-          <h3>{{birthdate}}</h3>
-        </div>
-        <div class="row">
-          <p>Lugar de Nacimineto / Local de Nascimento</p>
-          <h3>{{city}}/URY</h3>
-        </div>
-        <div class="row" (click)="copyMessage(ci)">
-          <p>Nº de Identidadad / Nº de Identidade</p>
-          <h3>{{ci}}</h3>
-        </div>
-        <div class="row">
-          <p>Expedici&oacute;n / Expedição</p>
-          <h3>{{expeditionDate}}</h3>
-        </div>
-        <div class="row">
-          <p>Vencimiento / Vencimento</p>
-          <h3>{{dueDate}}</h3>
-        </div>
-      </div>
-      <div id="sol">
-        <img src="../assets/sol.png" alt="sol">
-      </div>
+    <div class="button" (click)="getRandom()">
+      Get another
     </div>
   </div>
-  <a id="faces" href="https://github.com/ozgrozer/100k-faces">100k faces</a>
-  <a id="faces" href="https://randommer.io/randommer-api">randommer</a>
+  <div id="credits">
+    <div>
+      <p>Credits</p>
+    </div>
+    <a href="https://github.com/ozgrozer/100k-faces">100k faces</a>
+    <a href="https://randommer.io/randommer-api">randommer</a>
+  </div>
 </div>
